@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <img [src]="article.urlToImage" *ngIf="article.urlToImage" class="articleImage"/>
+    <h2>
+     {{article.title}}
+      </h2>
+      <p>{{article.description}}</p>
+   <ion-row no-padding>
+     <ion-col text-left>
+      <ion-note>
+        {{article.source.name}},  {{article.publishedAt|date:'medium'}}
+      </ion-note>
+    </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col> 
+    </ion-row>
+</ion-content>
+

@@ -1,19 +1,28 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+
+    <img src="https://www.sonypark360.net/wp-content/uploads/2017/08/profile-pictures.png" class="menu-logo"/>
+
+    <ion-list padding-top>
+      <ion-list-header>
+        <h2>NewsPapers</h2>
+      </ion-list-header>
+       <button menuClose ion-item  (click)="openPage({id:'All'})" >
+        All
       </button>
+      <button menuClose ion-item  (click)="openPage(page)" *ngFor="let page of pages">
+        <!-- <ion-icon item-left name="contact"></ion-icon>
+        Times of india -->
+        {{page.name}}
+      </button>
+      
     </ion-list>
+
+   
+
   </ion-content>
 
 </ion-menu>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-nav [root]="rootPage" #content></ion-nav>
